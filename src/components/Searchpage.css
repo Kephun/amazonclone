@@ -1,9 +1,0 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.searchpage__results {
-    display: flex;
-    flex-wrap: wrap;
-}

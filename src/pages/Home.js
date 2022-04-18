@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css'
-import Product from './Product'
+import Product from '/home/kephun/amazonclone/src/components/Product.js'
 
 function Home() {
   return (

@@ -1,19 +1,21 @@
 import './App.css';
-import Header from './components/Header';
-import Home from './components/Home';
-import Checkout from './components/Checkout'
-import Searchpage from './components/Searchpage'
+import Header from './pages/Header';
+import Home from './pages/Home';
+import Checkout from './pages/Checkout'
+import Searchpage from './pages/Searchpage'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import history from './components/history'
-
+import history from './pages/history'
+import Login from './pages/Login'
 
 function App() {
   return (
     <Router history={history}>
       <div className="app">
       <Routes>
-          <Route path='/search' element={<><Header/><Searchpage/></>}/>
           <Route path='/checkout' element={<><Header/><Checkout/></>}/>
+          <Route path='/prime' element={<><Header/></>}/>
+          <Route path='/signup' element={<><Login /></>}/>
+          <Route path='/search' element={<><Header/><Searchpage/></>}/>
           <Route path='/' element={<><Header/><Home/></>}/>
       </Routes>  
       </div>
