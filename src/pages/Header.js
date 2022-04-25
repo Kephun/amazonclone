@@ -1,11 +1,17 @@
 import React from 'react';
 import './Header.css';
-import { Link } from 'react-router-dom';
-import history from './history';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 
 
 function Header() {
+
+    const navigate = useNavigate(); 
+    const changeComponent = () => {
+        navigate('/search');
+    }
+
   return (
     <div className='header'>
         <Link to='/'>
@@ -51,8 +57,6 @@ function Header() {
   )
 }
 
-const changeComponent = () => {
-    history.push('/search')
-}
+
 
 export default Header
