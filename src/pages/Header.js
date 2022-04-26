@@ -1,15 +1,25 @@
 import React from 'react';
 import './Header.css';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { useStateValue } from '../components/StateProvider';
+import { useEffect } from 'react';
+import { auth } from './firebase-config'
 
 
 
 function Header() {
 
+    const [{ basket, user }] = useStateValue();
+
     const navigate = useNavigate(); 
     const changeComponent = () => {
         navigate('/search');
+    }
+
+    const handleAuthentication = () => {
+        if (user) {
+            auth.signOut();
+        }
     }
 
   return (
@@ -27,10 +37,10 @@ function Header() {
 
         <div className='header__nav'>
             
-            <Link to='/signup'>
-            <div className='header__option'>
-                <span className='header__optionLineOne'>Hello, Guest</span>
-                <span className='header__optionLineTwo'>Sign In</span>
+            <Link to={!user && '/signup'}>
+            <div onClick={handleAuthentication} className='header__option'>
+                <span className='header__optionLineOne'>Hello, guest</span>
+                <span className='header__optionLineTwo'>{user ? 'Sign out':'Sign In'}</span>
             </div>
             </Link>
 
@@ -49,7 +59,7 @@ function Header() {
             <Link to='/checkout'>
             <div className='header__optionBasket'>
                 <i className="fa-solid fa-basket-shopping"></i>
-                <span className='header__optionLineTwo header__basketCount'>0</span>
+                <span className='header__optionLineTwo header__basketCount'>{basket.length}</span>
             </div>
             </Link>
         </div>

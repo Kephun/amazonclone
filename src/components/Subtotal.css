@@ -17,13 +17,13 @@
     gap: 10px;
 }
 
-.subtotal__gift {
+.subtotal_gift {
     display: flex;
     align-items: center;
     gap: 2px;
 }
 
-.subtotal__button {
+.subtotal_button {
     background-color: #f0c14b;
     border-radius: 2px;
     width: 100%;

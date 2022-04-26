@@ -8,9 +8,30 @@ import history from './pages/history'
 import Login from './pages/Login'
 import { useEffect } from 'react';
 import { auth } from './pages/firebase-config';
+import { useStateValue } from './components/StateProvider';
 
 function App() {
 
+  const[{}, dispatch] = useStateValue()
+
+  useEffect(() => {
+    auth.onAuthStateChanged(authUser => {
+      console.log('The user is >> ', authUser);
+
+      if (authUser) {
+        dispatch({
+          type:'SET_USER',
+          user: authUser
+        })
+      } else {
+        dispatch({
+          type:'SET_User',
+          user: null,
+        })
+      }
+
+    })
+  })
   
 
   return (
