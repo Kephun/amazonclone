@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event'
 import React from 'react'
 import CheckoutProduct from '../components/CheckoutProduct'
 import { useStateValue } from '../components/StateProvider'
@@ -7,14 +8,15 @@ import Subtotal from '/home/kephun/amazonclone/src/components/Subtotal.js'
 
 function Checkout() {
 
-  const [{ basket }] = useStateValue();
+  const [{ basket, user }] = useStateValue();
 
   return (
     <div className='checkout'>
         <div className='checkout__left'>
             <img className='checkout__ad' src='https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg' alt=''/>
+            <h3>Hello {user?.email}</h3>
             <h2 className='checkout__title'>Your Shopping Basket</h2>
-              
+            
             {basket.map(item => (
               <CheckoutProduct
                 id={item.id}

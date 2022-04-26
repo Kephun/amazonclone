@@ -25,13 +25,13 @@ function App() {
         })
       } else {
         dispatch({
-          type:'SET_User',
+          type:'SET_USER',
           user: null,
         })
       }
 
     })
-  })
+  },[])
   
 
   return (
