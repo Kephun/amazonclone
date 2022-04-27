@@ -2,8 +2,7 @@ import React from 'react';
 import './Header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useStateValue } from '../components/StateProvider';
-import { useEffect } from 'react';
-import { auth } from './firebase-config'
+import { auth } from './firebase-config';
 
 
 

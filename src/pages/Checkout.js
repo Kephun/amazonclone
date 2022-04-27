@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event'
 import React from 'react'
 import CheckoutProduct from '../components/CheckoutProduct'
 import { useStateValue } from '../components/StateProvider'
